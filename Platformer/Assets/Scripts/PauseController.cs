@@ -13,18 +13,16 @@ public class PauseController : MonoBehaviour
     }
     public void ResumeGame()
     {
-       
         Time.timeScale = 1;
     }
     public void Restart()
     {
-        SceneManager.LoadScene(2);
         ResumeGame();
+        SceneManager.LoadScene(2);
     }
     public void ToMenu()
     {
         ResumeGame();
-
         SceneManager.LoadScene(0);
     }
 }

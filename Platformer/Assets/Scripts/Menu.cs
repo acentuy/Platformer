@@ -22,10 +22,13 @@ public class Menu : MonoBehaviour
        
     }
     public void LoadData()
-    {       
+    {
         if (PlayerPrefs.HasKey("LEVEL_KEY"))
+        {
             level = PlayerPrefs.GetInt("LEVEL_KEY");
-        else level = 2;       
+            return;
+        }
+        level = 2;       
     }
 
 }

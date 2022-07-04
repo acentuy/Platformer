@@ -9,6 +9,7 @@ public class Candle : Spike
     [SerializeField] private Transform groundCheck;
 
     private float speed = 2f;
+
     private bool isFacingRight = true;
 
     private RaycastHit2D hit;
@@ -24,20 +25,13 @@ public class Candle : Spike
             if (isFacingRight)
             {
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
-            }
-            else
-            {
-                rb.velocity = new Vector2(speed, rb.velocity.y);
-            }
-            
-        }
-        else
-        {
-            isFacingRight = !isFacingRight;
-            transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);
-            
+                return;
+            }    
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+            return;
         }        
-
+        isFacingRight = !isFacingRight;
+        transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);                       
     }
 
 }

@@ -22,13 +22,12 @@ public class DeathScreen : MonoBehaviour
         SceneManager.LoadScene(2);
 
     }
-    public void ResetData()
-        {
-            PlayerPrefs.DeleteKey("COIN_KEY");
-            PlayerPrefs.DeleteKey("LEVEL_KEY");
-            PlayerPrefs.DeleteKey("HEALTH_KEY");
-            PlayerPrefs.DeleteKey("X_KEY");
-            PlayerPrefs.DeleteKey("Y_KEY");
-    }
-  
-    }
+    private void ResetData()
+    {
+        PlayerPrefs.DeleteKey("COIN_KEY");
+        PlayerPrefs.DeleteKey("LEVEL_KEY");
+        PlayerPrefs.DeleteKey("HEALTH_KEY");
+        PlayerPrefs.DeleteKey("X_KEY");
+        PlayerPrefs.DeleteKey("Y_KEY");
+    }  
+}

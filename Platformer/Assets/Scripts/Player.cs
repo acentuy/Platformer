@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-
 {
     [Header("Hero")]
     [SerializeField] private int maxHealth = 5;
@@ -29,6 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject winScreen;
 
     private int currentHealth;
+    private int impulseX = -6;
+    private int impulseY = 2;
     private int coins = 0;
     private int level = 2;
     private float x = -4;
@@ -40,9 +41,6 @@ public class Player : MonoBehaviour
 
     private Animator animator;
     public static Player Instance { get; set; }
-
-    private Vector2 impulser = new Vector2(-6, 2);
-    private Vector2 impulsel = new Vector2(6, 2);
     public enum State
     {
         Idle,
@@ -56,7 +54,6 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        Time.timeScale = 1;
         hero.SetActive(true);
         coinsText.text = coins.ToString();
         pauseController = GameObject.FindGameObjectWithTag("PauseController").GetComponent<PauseController>();
@@ -89,17 +86,15 @@ public class Player : MonoBehaviour
         SaveData();
         pauseController.PauseGame();
     }
-    public void SaveData()
+    private void SaveData()
     {
-        x = rb.transform.position.x;
-        y = rb.transform.position.y;
         PlayerPrefs.SetInt("LEVEL_KEY", level);
         PlayerPrefs.SetInt("COIN_KEY", coins);
         PlayerPrefs.SetInt("HEALTH_KEY", currentHealth);
-        PlayerPrefs.SetFloat("X_KEY", x);
-        PlayerPrefs.SetFloat("Y_KEY", y);
+        PlayerPrefs.SetFloat("X_KEY", rb.transform.position.x);
+        PlayerPrefs.SetFloat("Y_KEY", rb.transform.position.y);
     }
-    public void LoadData()
+    private void LoadData()
     {
         if (PlayerPrefs.HasKey("COIN_KEY"))
             coins = PlayerPrefs.GetInt("COIN_KEY");
@@ -111,7 +106,6 @@ public class Player : MonoBehaviour
             x = PlayerPrefs.GetFloat("X_KEY");
         if (PlayerPrefs.HasKey("Y_KEY"))
             y = PlayerPrefs.GetFloat("Y_KEY");
-
     }
     private void Flip()
     {
@@ -161,14 +155,16 @@ public class Player : MonoBehaviour
     }
     public void GetDamage()
     {
-        speed = 0;
         currentHealth -= 1;
         healthBar.SetHealth(currentHealth);
-        if (stor) rb.AddForce(impulser, ForceMode2D.Impulse);
-        else rb.AddForce(impulsel, ForceMode2D.Impulse);
-        if (currentHealth == 0) Die();
-        else damageSound.Play();
-        speed = 3f;
+        impulseX = stor ? impulseX * 1 : impulseX * -1;
+        rb.AddForce(new Vector2(impulseX, impulseY), ForceMode2D.Impulse);
+        if (currentHealth == 0) 
+        {
+            Die();
+            return;
+        }
+        damageSound.Play();
     }
     private void Die()
     {

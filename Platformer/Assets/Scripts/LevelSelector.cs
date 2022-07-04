@@ -7,13 +7,11 @@ using UnityEngine.SceneManagement;
 public class LevelSelector : MonoBehaviour
 {
     [SerializeField] private Button[] level;
-
     private void Start()
     {
         int levelReach = PlayerPrefs.GetInt("levelReach", 1);
         for (int i = 0; i < level.Length; i++)
-            if (i + 1 > levelReach)
-                level[i].interactable = false;
+            level[i].interactable = i + 1 > levelReach? false : true;
     }
     public void Select(int numberInBuild)
     {

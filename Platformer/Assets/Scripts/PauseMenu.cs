@@ -4,6 +4,7 @@ public class PauseMenu : MonoBehaviour
     
 {
     [SerializeField] private GameObject hero;
+
     private PauseController controller;
     private void Start()
     {
@@ -25,12 +26,12 @@ public class PauseMenu : MonoBehaviour
         gameObject.SetActive(false);
         controller.Restart();
     }
-        public void ResetData()
-        {
-            PlayerPrefs.DeleteKey("COIN_KEY");
-            PlayerPrefs.DeleteKey("LEVEL_KEY");
-            PlayerPrefs.DeleteKey("HEALTH_KEY");
-            PlayerPrefs.DeleteKey("X_KEY");
-            PlayerPrefs.DeleteKey("Y_KEY");
-        }
+    private void ResetData()
+    {
+        PlayerPrefs.DeleteKey("COIN_KEY");
+        PlayerPrefs.DeleteKey("LEVEL_KEY");
+        PlayerPrefs.DeleteKey("HEALTH_KEY");
+        PlayerPrefs.DeleteKey("X_KEY");
+        PlayerPrefs.DeleteKey("Y_KEY");
     }
+}
