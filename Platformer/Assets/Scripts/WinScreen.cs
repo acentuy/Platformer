@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinScreen : DeathScreen
+public class WinScreen : Screen
 {
     public void Next()
     {

@@ -2278,6 +2278,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1096687014}
     m_Modifications:
+    - target: {fileID: 4752237760257163970, guid: 95bb63e98f58d784394a42ac40cf48f1, type: 3}
+      propertyPath: Sound
+      value: 
+      objectReference: {fileID: 942045992}
     - target: {fileID: 4752237760257163998, guid: 95bb63e98f58d784394a42ac40cf48f1, type: 3}
       propertyPath: m_Name
       value: DeathScreen
@@ -2369,6 +2373,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bb63e98f58d784394a42ac40cf48f1, type: 3}
+--- !u!82 &942045992 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1495937553, guid: 95bb63e98f58d784394a42ac40cf48f1, type: 3}
+  m_PrefabInstance: {fileID: 942045991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &969795138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,6 +5608,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1096687014}
     m_Modifications:
+    - target: {fileID: 1049952357896513443, guid: 61f28d97c96aa884e8c8d6f2d198b5d5, type: 3}
+      propertyPath: Sound
+      value: 
+      objectReference: {fileID: 1049952357896513440}
     - target: {fileID: 5332502679922783194, guid: 61f28d97c96aa884e8c8d6f2d198b5d5, type: 3}
       propertyPath: m_Name
       value: WinScreen
@@ -5697,6 +5710,11 @@ PrefabInstance:
 --- !u!224 &1049952357896513439 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5332502679922783195, guid: 61f28d97c96aa884e8c8d6f2d198b5d5, type: 3}
+  m_PrefabInstance: {fileID: 1049952357896513438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1049952357896513440 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 861188082763039509, guid: 61f28d97c96aa884e8c8d6f2d198b5d5, type: 3}
   m_PrefabInstance: {fileID: 1049952357896513438}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1049952357896513442 stripped

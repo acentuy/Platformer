@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Candle : Spike
+class Candle : Enemy
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayers;

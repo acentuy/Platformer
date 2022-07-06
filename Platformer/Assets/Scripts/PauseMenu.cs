@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
-    
+
 {
     [SerializeField] private GameObject hero;
 

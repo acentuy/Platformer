@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Saw : Spike
+class Saw : Enemy
 {
     private float speed = 0.04f;
     void Update()

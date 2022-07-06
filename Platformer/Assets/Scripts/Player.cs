@@ -52,21 +52,21 @@ public class Player : MonoBehaviour
         get { return (State)animator.GetInteger("State"); }
         set { animator.SetInteger("State", (int)value); }
     }
-    private void Start()
-    {
-        hero.SetActive(true);
-        coinsText.text = coins.ToString();
-        pauseController = GameObject.FindGameObjectWithTag("PauseController").GetComponent<PauseController>();
-        healthBar.SetHealth(currentHealth);
-        rb.transform.position = new Vector2(x, y);
-    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        pauseController = GameObject.FindGameObjectWithTag("PauseController").GetComponent<PauseController>();
         Instance = this;
         currentHealth = maxHealth;
         LoadData();
+    }
+    private void Start()
+    {
+        hero.SetActive(true);
+        coinsText.text = coins.ToString();
+        healthBar.SetHealth(currentHealth);
+        rb.transform.position = new Vector2(x, y);
     }
     private void FixedUpdate()
     {
